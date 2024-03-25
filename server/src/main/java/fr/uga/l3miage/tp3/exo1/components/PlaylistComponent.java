@@ -5,6 +5,8 @@ import fr.uga.l3miage.tp3.exo1.repositories.PlaylistRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.Set;
+
 @Component
 @RequiredArgsConstructor
 public class PlaylistComponent {
@@ -16,6 +18,10 @@ public class PlaylistComponent {
 
     public  PlaylistEntity createSong(PlaylistEntity playlistEntity) {
         return playlistRepository.save(playlistEntity);
+    }
+
+    public Set<PlaylistEntity> getPlaylistEntities(String songName){
+        return playlistRepository.findAllBySongEntitiesContaining(songName);
     }
 
     public PlaylistEntity updateSong(String name, PlaylistEntity playlistEntity) {

@@ -24,6 +24,10 @@ public class SongComponent {
         return songRepository.save(songEntity);
     }
 
+    public SongEntity getSongEntity (Duration duration1, Duration duration2){
+        return songRepository.findByDurationBetween(duration1, duration2);
+    }
+
     public SongEntity updateSong(String title, SongEntity songEntity) {
         SongEntity songEntity_ = songRepository.findById(title).orElseThrow();
 

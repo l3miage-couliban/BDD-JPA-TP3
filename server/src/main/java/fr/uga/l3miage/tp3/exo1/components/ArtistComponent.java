@@ -1,5 +1,6 @@
 package fr.uga.l3miage.tp3.exo1.components;
 
+import fr.uga.l3miage.tp3.exo1.enums.GenreMusical;
 import fr.uga.l3miage.tp3.exo1.models.ArtistEntity;
 import fr.uga.l3miage.tp3.exo1.repositories.ArtistRepository;
 import lombok.RequiredArgsConstructor;
@@ -14,8 +15,8 @@ public class ArtistComponent {
         return artistRepository.findById(name).orElseThrow();
     }
 
-    public Integer getCountArtistsByGenreMusical(String genreMusical) {
-        return artistRepository.CountByGenreMusical(genreMusical);
+    public int getCountArtistsByGenreMusical(GenreMusical genreMusical){
+        return artistRepository.countAllByGenreMusical(genreMusical);
     }
 
     public  ArtistEntity createArtist(ArtistEntity artistEntity) {
